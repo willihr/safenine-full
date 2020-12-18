@@ -71,6 +71,14 @@
       "sensor2": 5,
       "sensor3": 38,
       "id": 9
+    },
+    {
+      "pacientId": 2,
+      "timestamp": 1608253306250,
+      "sensor1": 99999,
+      "sensor2": 25,
+      "sensor3": 25,
+      "id": 10
     }
   ],
   "alerts": [
@@ -151,9 +159,9 @@
       "id": 2,
       "name": "Eduarda Figueira Silva",
       "age": 25,
-      "sensor1": 100,
-      "sensor2": 5,
-      "sensor3": 38
+      "sensor1": 99999,
+      "sensor2": 25,
+      "sensor3": 25
     },
     {
       "id": 3,

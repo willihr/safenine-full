@@ -10,19 +10,30 @@ export const Container = styled.div`
   color: #fff;
   position: sticky;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   > div {
-    /* padding: 20px 0 0; */
-    border-bottom: 1px solid #77f;
+    > div {
+      /* padding: 20px 0 0; */
+      border-bottom: 1px solid #77f;
 
-    > span {
-      display: block;
-      margin-top: 15px;
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #9af;
+      > span {
+        display: block;
+        margin-top: 15px;
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #9af;
+      }
     }
+  }
+
+  img {
+    width: 100px;
+    align-self: center;
+    margin-bottom: 50px;
   }
 `;
 

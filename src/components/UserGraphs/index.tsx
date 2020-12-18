@@ -37,7 +37,7 @@ const UserGraphs: React.FC<UserGraphsProps> = ({
       setZoomDomain2({ x: domain.x, y: zoomDomain2?.y });
       setZoomDomain3({ x: domain.x, y: zoomDomain3?.y });
     },
-    [zoomDomain1?.y, zoomDomain2?.y, zoomDomain3?.y],
+    [zoomDomain1, zoomDomain2, zoomDomain3],
   );
   const handleSetZoomDomain1 = useCallback(
     (domain: any) => {

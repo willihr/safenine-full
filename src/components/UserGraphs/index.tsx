@@ -1,5 +1,5 @@
 import { Measure } from 'dto/ServerResponseDTO';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   VictoryChart,
   VictoryAxis,
@@ -31,11 +31,14 @@ const UserGraphs: React.FC<UserGraphsProps> = ({
   const [zoomDomain2, setZoomDomain2] = useState<ZoomDomainType>();
   const [zoomDomain3, setZoomDomain3] = useState<ZoomDomainType>();
 
-  const updateAllXDomain = useCallback((domain: ZoomDomainType) => {
-    setZoomDomain1({ x: domain.x, y: zoomDomain1?.y });
-    setZoomDomain2({ x: domain.x, y: zoomDomain2?.y });
-    setZoomDomain3({ x: domain.x, y: zoomDomain3?.y });
-  }, []);
+  const updateAllXDomain = useCallback(
+    (domain: ZoomDomainType) => {
+      setZoomDomain1({ x: domain.x, y: zoomDomain1?.y });
+      setZoomDomain2({ x: domain.x, y: zoomDomain2?.y });
+      setZoomDomain3({ x: domain.x, y: zoomDomain3?.y });
+    },
+    [zoomDomain1?.y, zoomDomain2?.y, zoomDomain3?.y],
+  );
   const handleSetZoomDomain1 = useCallback(
     (domain: any) => {
       setZoomDomain1(domain);
@@ -73,7 +76,7 @@ const UserGraphs: React.FC<UserGraphsProps> = ({
     setPacientMeasures(
       measures
         .filter(item => item.pacientId === pacientId)
-        .map((item, index) => {
+        .map(item => {
           return {
             key: item.timestamp,
             a: item.sensor1,

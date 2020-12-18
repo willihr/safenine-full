@@ -44,29 +44,32 @@ function processForm() {
   const condTpc = dataTpc > 37.7; // Temperatura corporal anormal.
   const condTpcE = dataTpc > 38.9; // Temperatura corporal muito alta!
 
-  if (condBtm || condPaB || condTpc || condBtmE || condPaE || condTpcE) {
-    let alertMessage = '';
-    let alertType = 'warning';
+  let alertMessage = '';
+  let alertType = 'nothing';
 
-    if (condBtmE) {
-      alertMessage += 'Batimentos cardíacos muito rápidos! ';
-    } else if (condBtm) {
-      alertMessage += 'Batimentos cardíacos anormais. ';
-      alertType = 'error';
-    }
-    if (condPaE) {
-      alertMessage += 'Pressão sanguínea muito alta! ';
-    } else if (condPaB) {
-      alertMessage += 'Pressão sanguínea muito baixa! ';
-      alertType = 'error';
-    }
-    if (condTpcE) {
-      alertMessage += 'Temperatura corporal muito alta! ';
-    } else if (condTpc) {
-      alertMessage += 'Temperatura corporal anormal. ';
-      alertType = 'error';
-    }
+  if (condBtmE) {
+    alertMessage += 'Batimentos cardíacos muito rápidos! ';
+    alertType = 'error';
+  } else if (condBtm) {
+    alertMessage += 'Batimentos cardíacos anormais. ';
+    alertType = 'warning';
+  }
+  if (condPaE) {
+    alertMessage += 'Pressão sanguínea muito alta! ';
+    alertType = 'error';
+  } else if (condPaB) {
+    alertMessage += 'Pressão sanguínea muito baixa! ';
+    alertType = 'warning';
+  }
+  if (condTpcE) {
+    alertMessage += 'Temperatura corporal muito alta! ';
+    alertType = 'error';
+  } else if (condTpc) {
+    alertMessage += 'Temperatura corporal anormal. ';
+    alertType = 'warning';
+  }
 
+  if (alertType != 'nothing') {
     fetch('http://localhost:3333/alerts', {
       method: 'POST',
       body: JSON.stringify({

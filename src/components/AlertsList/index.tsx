@@ -11,15 +11,15 @@ interface AlertsListProps {
 }
 
 const alertsColors = {
-  high: '#ffe9ee',
-  medium: '#ffc',
-  low: '#fff',
+  error: '#ffe9ee',
+  warning: '#ffc',
+  // nothing: '#fff',
 };
 
 const alertsIcons = {
-  high: <IoMdAlert color="#f00" size={22} />,
-  medium: <IoMdWarning color="#c0c000" size={22} />,
-  low: <></>,
+  error: <IoMdAlert color="#f00" size={22} />,
+  warning: <IoMdWarning color="#c0c000" size={22} />,
+  // nothing: <></>,
 };
 
 const AlertsList: React.FC<AlertsListProps> = ({ alerts }: AlertsListProps) => {
@@ -36,42 +36,44 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts }: AlertsListProps) => {
   return (
     <Container>
       <h3>Últimos Alertas</h3>
-      <div>
-        <Table>
-          <thead>
-            <tr>
-              <th style={{ width: '5%', textAlign: 'center' }}> </th>
-              <th style={{ width: '15%' }}>Horário</th>
-              <th style={{ width: '25%' }}>Paciente</th>
-              <th>Mensagem</th>
-              <th style={{ width: '3%' }}> </th>
-            </tr>
-          </thead>
+      {(alerts.length && (
+        <div>
+          <Table>
+            <thead>
+              <tr>
+                <th style={{ width: '5%', textAlign: 'center' }}> </th>
+                <th style={{ width: '15%' }}>Horário</th>
+                <th style={{ width: '25%' }}>Paciente</th>
+                <th>Mensagem</th>
+                <th style={{ width: '3%' }}> </th>
+              </tr>
+            </thead>
 
-          <tbody>
-            {alerts
-              .slice(0)
-              .reverse()
-              .map(alert => (
-                <tr
-                  key={alert.id}
-                  onClick={e => handleUserClick(e, alert.pacientId)}
-                  style={{ backgroundColor: alertsColors[alert.type] }}
-                >
-                  <td style={{ textAlign: 'center' }}>
-                    {alertsIcons[alert.type]}
-                  </td>
-                  <td>{formatTimestamp(alert.timestamp)}</td>
-                  <td>{alert.pacientName}</td>
-                  <td>{alert.message}</td>
-                  <td style={{ textAlign: 'center' }}>
-                    <IoMdArrowRoundForward color="green" size={20} />
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </Table>
-      </div>
+            <tbody>
+              {alerts
+                .slice(0)
+                .reverse()
+                .map(alert => (
+                  <tr
+                    key={alert.id}
+                    onClick={e => handleUserClick(e, alert.pacientId)}
+                    style={{ backgroundColor: alertsColors[alert.type] }}
+                  >
+                    <td style={{ textAlign: 'center' }}>
+                      {alertsIcons[alert.type]}
+                    </td>
+                    <td>{formatTimestamp(alert.timestamp)}</td>
+                    <td>{alert.pacientName}</td>
+                    <td>{alert.message}</td>
+                    <td style={{ textAlign: 'center' }}>
+                      <IoMdArrowRoundForward color="green" size={20} />
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </Table>
+        </div>
+      )) || <h2 style={{ padding: 30 }}>Nenhum alerta até o momento.</h2>}
       <div />
     </Container>
   );

@@ -251,7 +251,7 @@ const UserGraphs: React.FC<UserGraphsProps> = ({
         </div>
       )) || (
         <h2 style={{ padding: 30 }}>
-          Nenhum dado de sensor encontrado, por favor aguarde.
+          Não foram lidos dados suficientes, por favor aguarde.
         </h2>
       )}
     </Container>

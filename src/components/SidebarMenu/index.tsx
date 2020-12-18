@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdWbCloudy } from 'react-icons/md';
-import { IoIosSpeedometer } from 'react-icons/io';
+import { IoIosListBox, IoIosSpeedometer } from 'react-icons/io';
+import { BsPersonBoundingBox } from 'react-icons/bs';
 
 // import logo from '../../assets';
 import { Container, PageLink, Title } from './styles';
@@ -23,8 +24,15 @@ const TopBar: React.FC = () => {
       <div>
         <span>Pacientes</span>
         <PageLink to="/users">
-          <IoIosSpeedometer size={16} />
+          <IoIosListBox size={16} />
           <span>Listar Pacientes</span>
+        </PageLink>
+      </div>
+      <div>
+        <span>Pulseira Simulada</span>
+        <PageLink to="/pulseira.html" target="_blank">
+          <BsPersonBoundingBox size={16} />
+          <span>Abrir Pulseira</span>
         </PageLink>
       </div>
     </Container>

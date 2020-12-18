@@ -1,3 +1,5 @@
+const apiUrl = 'https://safenine.herokuapp.com';
+
 function processForm() {
   const timestamp = Date.now();
   const pacientIdd = parseInt(document.getElementById('paciente').value, 10);
@@ -10,7 +12,7 @@ function processForm() {
   const dataTpc = parseFloat(
     document.getElementById('tpc').value.replace(',', '.'),
   );
-  fetch(`http://localhost:3333/pacients/${pacientIdd}`, {
+  fetch(`${apiUrl}/pacients/${pacientIdd}`, {
     method: 'PATCH',
     body: JSON.stringify({
       sensor1: dataBtm,
@@ -22,7 +24,7 @@ function processForm() {
     },
   });
 
-  fetch('http://localhost:3333/measures/', {
+  fetch(`${apiUrl}/measures/`, {
     method: 'POST',
     body: JSON.stringify({
       pacientId: pacientIdd,
@@ -70,7 +72,7 @@ function processForm() {
   }
 
   if (alertType != 'nothing') {
-    fetch('http://localhost:3333/alerts', {
+    fetch(`${apiUrl}/alerts`, {
       method: 'POST',
       body: JSON.stringify({
         type: alertType,

@@ -1,7 +1,7 @@
 export interface Alert {
   id: number;
   timestamp: number;
-  type: 'low' | 'medium' | 'high';
+  type: 'warning' | 'error';
   pacientId: number;
   pacientName: string | undefined;
   message: string;

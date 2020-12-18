@@ -67,7 +67,7 @@ function useApiInterface(): useApiInterfaceReturnType {
       );
 
       unseenAlerts.forEach((alert: Alert) => {
-        toast.error(ToastObj(alert.pacientName, alert.message), {
+        toast[alert.type](ToastObj(alert.pacientName, alert.message), {
           autoClose: false,
         });
         api.patch(`/alerts/${alert.id}`, { seen: true });

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href='index.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+  <!--Texto-->
+  <div id="text">
+    <h1>DEMONSTRAÇÃO SAFE NINE</h1>
+  </div>
+  <!--Fim texto-->
+  
+  <!--Formulários-->
+  <div id="inputs">
+  <form action="config.php" method="POST" id="my-form">
+    <select name="paciente" id="paciente">
+      <option value="." disabled selected>Qual paciente?</option>
+      <option value="1">Luana Gomes</option>
+      <option value="2">Eduarda Figueira Silva</option>
+      <option value="3">Fabiana Regina Dias</option>
+      <option value="4">Cecília Agatha Brenda da Rocha</option>
+      <option value="5">Marlene Emily Aparecida da Mota</option>
+      <option value="6">Giovana Luna Betina da Rosa</option>
+    </select>
+    <input type="text" id="btm" placeholder="Batimentos Cardíacos (BPM)">
+    <input type="text" id="pa" placeholder="Pressão Arterial (mmHg)">
+    <input type="text" id="tpc" placeholder="Temperatura Corporal (Cº)">
+    <input class="btn" type="button" onclick="processForm()" value="Enviar">
+  </form>
+  </div>
+  <!--Fim Formulários-->
+  
+  <!--Braço + Relogio-->
+  <div id="container">
+    <div id="arm">
+      <div class="sleeve">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </div>
+      <div class="watch">
+        <div class="interior">
+          <div class="mid"></div>
+        </div>
+      </div>
+      <div class="mao">
+        <div class="dedo-menor"></div>
+        <div class="dedos"></div>
+        <div class="dedo-medio"></div>
+        <div class="dedos"></div>
+        <div class="thumb"</div>
+      </div>
+  </div>
+  <!--Fim Braço + Relogio-->
+</body>
+</html>

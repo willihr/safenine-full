@@ -39,6 +39,38 @@
       "sensor2": 25,
       "sensor3": 36,
       "id": 5
+    },
+    {
+      "pacientId": 2,
+      "timestamp": 1608251279361,
+      "sensor1": 100,
+      "sensor2": 100,
+      "sensor3": 38,
+      "id": 6
+    },
+    {
+      "pacientId": 2,
+      "timestamp": 1608251912228,
+      "sensor1": 100,
+      "sensor2": 100,
+      "sensor3": 38,
+      "id": 7
+    },
+    {
+      "pacientId": 2,
+      "timestamp": 1608251950512,
+      "sensor1": 100,
+      "sensor2": 100,
+      "sensor3": 38,
+      "id": 8
+    },
+    {
+      "pacientId": 2,
+      "timestamp": 1608251956209,
+      "sensor1": 100,
+      "sensor2": 5,
+      "sensor3": 38,
+      "id": 9
     }
   ],
   "alerts": [
@@ -119,9 +151,9 @@
       "id": 2,
       "name": "Eduarda Figueira Silva",
       "age": 25,
-      "sensor1": 35,
-      "sensor2": 25,
-      "sensor3": 36
+      "sensor1": 100,
+      "sensor2": 5,
+      "sensor3": 38
     },
     {
       "id": 3,

@@ -16,7 +16,7 @@ interface UserGraphsProps {
 }
 
 type GraphsSeriesType = Array<{ key: number; a: number; b: number; c: number }>;
-type ZoomDomainType = { x: [number, number] };
+type ZoomDomainType = { x: [number, number]; y: [number, number] | undefined };
 
 const UserGraphs: React.FC<UserGraphsProps> = ({
   measures,
@@ -31,25 +31,38 @@ const UserGraphs: React.FC<UserGraphsProps> = ({
   const [zoomDomain2, setZoomDomain2] = useState<ZoomDomainType>();
   const [zoomDomain3, setZoomDomain3] = useState<ZoomDomainType>();
 
-  const handleSetZoomDomain1 = useCallback(domain => {
-    setZoomDomain1(domain);
+  const updateAllXDomain = useCallback((domain: ZoomDomainType) => {
+    setZoomDomain1({ x: domain.x, y: zoomDomain1?.y });
+    setZoomDomain2({ x: domain.x, y: zoomDomain2?.y });
+    setZoomDomain3({ x: domain.x, y: zoomDomain3?.y });
   }, []);
-  const handleSetZoomDomain2 = useCallback(domain => {
-    setZoomDomain2(domain);
-  }, []);
-  const handleSetZoomDomain3 = useCallback(domain => {
-    setZoomDomain3(domain);
-  }, []);
-
-  const formatDate = useCallback(timestamp => {
-    return new Date(timestamp).getFullYear();
-  }, []);
+  const handleSetZoomDomain1 = useCallback(
+    (domain: any) => {
+      setZoomDomain1(domain);
+      updateAllXDomain(domain);
+    },
+    [updateAllXDomain],
+  );
+  const handleSetZoomDomain2 = useCallback(
+    (domain: any) => {
+      setZoomDomain2(domain);
+      updateAllXDomain(domain);
+    },
+    [updateAllXDomain],
+  );
+  const handleSetZoomDomain3 = useCallback(
+    (domain: any) => {
+      setZoomDomain3(domain);
+      updateAllXDomain(domain);
+    },
+    [updateAllXDomain],
+  );
 
   useEffect(() => {
     if (pacientInfoLoaded === false && measures.length) {
-      console.log(measures);
       const dataToSet: ZoomDomainType = {
         x: [measures[0].timestamp, measures[measures.length - 1].timestamp],
+        y: undefined,
       };
       setZoomDomain1(dataToSet);
       setZoomDomain2(dataToSet);

@@ -28,6 +28,18 @@ function useApiInterface(): useApiInterfaceReturnType {
   const [measures, setMeasures] = useState<Measure[]>([]);
 
   useEffect(() => {
+    if (!connectionStatusRef.current && connectionStatus) {
+      toast.success(
+        ToastObj(
+          'Conexão à central',
+          'Conectado com sucesso! Clique aqui para fechar o popup.',
+        ),
+        {
+          autoClose: false,
+        },
+      );
+    }
+
     connectionStatusRef.current = connectionStatus;
   }, [connectionStatus]);
 
@@ -95,7 +107,7 @@ function useApiInterface(): useApiInterfaceReturnType {
           },
         );
       }
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);

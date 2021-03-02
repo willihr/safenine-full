@@ -9,7 +9,7 @@ The pink page is a simulation of the bracelet with the theoretically measured bi
 ## Visuals
 ![App Dashboard](ss.jpg)
 ![App Dashboard](ss2.jpg)
-![Bracelet](ss3.jpg)
+![Bracelet](ss4.jpg)
 
 ## How to use
 In the project directory, you can run:

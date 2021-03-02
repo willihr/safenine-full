@@ -7,7 +7,9 @@ The pink page is a simulation of the bracelet with the theoretically measured bi
 [https://safenine.netlify.app/pulseira.html](Simulated bracelet)
 
 ## Visuals
-![App](ss1.jpg)
+![App Dashboard](ss.jpg)
+![App Dashboard](ss2.jpg)
+![Bracelet](ss3.jpg)
 
 ## How to use
 In the project directory, you can run:
